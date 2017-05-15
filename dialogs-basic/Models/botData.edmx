@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="botModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\SNEHA MORE\DESKTOP\INTRO-TO-BOTFRAMEWORK-4-DIALOGFUNDAMENTALS-MASTER\DIALOGS-BASIC\APP_DATA\BOT.MDF.dbo.botTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="botTable">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Place" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="PhotoURL" />
+            <PropertyRef Name="CardURL" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Place" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Price" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="PhotoURL" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="CardURL" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="botModelStoreContainer">
+          <EntitySet Name="botTable" EntityType="Self.botTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [botTable].[Name] AS [Name], 
+    [botTable].[Place] AS [Place], 
+    [botTable].[Price] AS [Price], 
+    [botTable].[PhotoURL] AS [PhotoURL], 
+    [botTable].[CardURL] AS [CardURL]
+    FROM [dbo].[botTable] AS [botTable]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="botModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="botTable">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Place" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="PhotoURL" />
+            <PropertyRef Name="CardURL" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Place" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhotoURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CardURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="botEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="botTables" EntityType="Self.botTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="botModelStoreContainer" CdmEntityContainer="botEntities">
+          <EntitySetMapping Name="botTables">
+            <EntityTypeMapping TypeName="botModel.botTable">
+              <MappingFragment StoreEntitySet="botTable">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PhotoURL" ColumnName="PhotoURL" />
+                <ScalarProperty Name="CardURL" ColumnName="CardURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
